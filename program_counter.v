@@ -1,8 +1,8 @@
 /* program_counter.v
 * Implements the 16-bit loadable program counter.
-* Author: Steven Bell <steven.bell@student.oc.edu>
-* Date: 11 September 2010
-* $LastChangedDate: 2010-11-23 09:34:58 -0600 (Tue, 23 Nov 2010) $
+* Author: Yash Shrivastava <yash.shrivastava@iitkgp.ac.in>
+* Author: Abinash Meher <abinashmeher999@gmail.com>
+* Date: 4 November 2015
 */
 
 /* Program counter which is used to index memory to load instructions.

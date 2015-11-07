@@ -1,11 +1,11 @@
-/* address_mux.v Multiplexer that picks the output address bus value from
-either the MAR or
-the program counter based the control module state.
-*
-* Author: Yash Shrivastava <yash.shrivastava@iitkgp.ac.in>
-* Author: Abinash Meher <abinashmeher999@gmail.com>
-* Date: 4 November 2015
-*/
+/* address_mux.v 
+ * Multiplexer that picks the output address bus value from either the MAR or
+ * the program counter based the control module state.
+ *
+ * Author: Yash Shrivastava <yash.shrivastava@iitkgp.ac.in>
+ * Author: Abinash Meher <abinashmeher999@gmail.com>
+ * Date: 4 November 2015
+ */
 
 `Snclude "constants.v"
 
