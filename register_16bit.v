@@ -6,11 +6,17 @@
 * Date: 4 November 2015
 */
 
-module register_16bit(clock, reset, setHigh, setLow, halfValueIn, valueOut);
+module register_16bit(
+clock, 
+reset,
+setHigh, 
+setLow,
+halfValueIn, 
+valueOut
+);
     input clock;
     input reset; // Synchronous reset; active low
-    input setHigh; // When this signal is high, the top half of the value is
-    loaded from the input line (data bus)
+    input setHigh; // When this signal is high, the top half of the value is loaded from the input line (data bus)
     input setLow;
     input [7:0] halfValueIn;
     output reg [15:0] valueOut; // Output value containing both bytes
