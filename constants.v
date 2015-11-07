@@ -11,13 +11,12 @@
 `define CARRYFLAG 1
 `define NEGFLAG 0
 
-// ALU Opcodes
-// These are the four lower bits from the opcode (instruction bits 14-11)
-`define ALU_ADD 4'b0001
-`define ALU_SUBTRACT 4'b0010
-`define ALU_AND 4'b0100
-`define ALU_OR 4'b0101
-`define ALU_COMPLEMENT 4'b1000
+// ALU Opcodes  for control signal
+`define ALU_ADD 3'd0
+`define ALU_SUBTRACT 3'd1
+`define ALU_AND 3'd2
+`define ALU_OR 3'd3
+`define ALU_COMPLEMENT 3'd4
 // Room for 2 more, 4'b1101 and 4'b1110
 // 4'b0000 is taken for NOP 4'b1111 for JUMP - these will give a 0 result
 
