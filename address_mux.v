@@ -18,7 +18,7 @@ output[15:0] address_bus
 
 	assign address_bus = (state === `S_FETCH_MEMORY 
 		|| state === `S_STORE_MEMORY 
-		||state === `S_TEMP_FETCH 
+		|| state === `S_TEMP_FETCH 
 		|| state === `S_TEMP_STORE) 
 	? mar_value : pc_value;
 endmodule
