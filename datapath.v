@@ -8,36 +8,36 @@
 */
 
 module datapath(
-input clock,
-input reset,
-input pc_increment,
-input pc_set,
-input gp_read,
-input gp_write,
-input[2:0] gp_input_select,
-input[2:0] gp_output_select,
-input[2:0] gp_alu_output_select,
-input[3:0] alu_operation,
-input latch_alu,
-input alu_store_high,
-input alu_store_low,
-input mar_set_high,
-input mar_set_low,
-input ir_set_high,
-input ir_set_low,
-input jr_set_high,
-input jr_set_low,
+	input clock,
+	input reset,
+	input pc_increment,
+	input pc_set,
+	input gp_read,
+	input gp_write,
+	input[2:0] gp_input_select,
+	input[2:0] gp_output_select,
+	input[2:0] gp_alu_output_select,
+	input[3:0] alu_operation,
+	input latch_alu,
+	input alu_store_high,
+	input alu_store_low,
+	input mar_set_high,
+	input mar_set_low,
+	input ir_set_high,
+	input ir_set_low,
+	input jr_set_high,
+	input jr_set_low,
 
-output
-output
-output
-output
-wire[15:0] pc_count, // Program counter output
-wire[15:0] mar_value, // Memory address register output
-wire[15:0] ir_value, // Instruction register output
-wire[2:0] flags, // ALU flags
+	output
+	output
+	output
+	output
+	wire[15:0] pc_count, // Program counter output
+	wire[15:0] mar_value, // Memory address register output
+	wire[15:0] ir_value, // Instruction register output
+	wire[2:0] flags, // ALU flags
 
-inout[7:0] data_bus
+	inout[7:0] data_bus
 );
 
 	// Shared connections
