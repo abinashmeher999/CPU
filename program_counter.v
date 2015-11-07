@@ -12,28 +12,32 @@
 module program_counter(
 clock, 
 reset, 
-increment, 
-set, 
-new_count, 
-count
+PC_in,
+PC_out,
+data_bus
 );
     input clock;
-    input reset; // Synchronous reset; active low
-    input increment; // Only increment the counter when this signal is high
-    input set; // When this signal is high, the counter loads new_count into the  counter
-    input [15:0] new_count; // New value to set the counter to
-    output reg [15:0] count; // Output address of the program counter
+    input reset; // Synchronous reset; active high
+    input PC_in; // When this signal is high, the counter loads new_count into the  counter
+    inout[15:0] data_bus; // New value to set the counter to
+    input PC_out;
+    
+    reg[15:0] output_value;
+    reg [15:0] count; // Output address of the program counter
 
     // Clocked operation
     always @(posedge clock) begin
-        if(~reset) begin // If the reset line is low, then zero the counter
+        if(reset) begin // If the reset line is high, then zero the counter
             count <= 0;
-        end else if(set) begin // If set is high, then load a new value into the
-            counter
-            count <= new_count;
-        end else if(increment) begin // Otherwise, if increment is high, add one to
-            the counter
-            count <= count + 1;
-        end
+        end else if(PC_in) begin // If PC_in is high, then load a new value into the counter
+            count <= data_bus;
+        end 
+        // else if(increment) begin // Otherwise, if increment is high, add one to the counter
+        //     count <= count + 1;
+        // end
     end // END always
+
+    assign output_value = count;
+    assign data_bus = PC_out ? output_value : 16'hzz;
+
 endmodule
