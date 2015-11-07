@@ -7,7 +7,7 @@
  * Date: 4 November 2015
  */
 
-`Snclude "constants.v"
+`include "constants.v"
 
 module address_mux(
 input[15:0] pc_value,
@@ -16,6 +16,9 @@ input[4:0] state,
 output[15:0] address_bus
 );
 
-assign address_bus = (state === `S_FETCH_MEMORY || state === `S_STORE_MEMORY||state === `S_TEMP_FETCH || state === `S_TEMP_STORE) ?
-mar_value : pc_value;
+	assign address_bus = (state === `S_FETCH_MEMORY 
+		|| state === `S_STORE_MEMORY 
+		||state === `S_TEMP_FETCH 
+		|| state === `S_TEMP_STORE) 
+	? mar_value : pc_value;
 endmodule

@@ -19,30 +19,29 @@ output reg[7:0] out,
 output reg[2:0] flags_out
 );
 
-reg[15:0] value; // Stores the full-length output value
+	reg[15:0] value; // Stores the full-length output value
 
-always @(posedge clock) begin
-if(reset == 1'b0) begin
-value <= 16'b0;
-end
-if(grab == 1'b1) begin // Latch the ALU value when the grab signal is high
-value <= alu_result;
-flags_out <= flags;
-end
-end // always
+	always @(posedge clock) begin
+		if(reset == 1'b0) begin
+			value <= 16'b0;
+		end
+		if(grab == 1'b1) begin // Latch the ALU value when the grab signal is high
+			value <= alu_result;
+			flags_out <= flags;
+		end
+	end // always
 
-/* This part will synthesize into combinational logic which puts
-* the appropriate set of signals onto the data bus. */
-always @(*) begin
-if(store_low == 1'b1) begin
-out <= value[7:0];
-end
-else if(store_high == 1'b1) begin
-out <= value[15:8];
-end
-else begin
-out <= 8'hzz;
-end
-
-end
+	/* This part will synthesize into combinational logic which puts
+	* the appropriate set of signals onto the data bus. */
+	always @(*) begin
+		if(store_low == 1'b1) begin
+			out <= value[7:0];
+		end
+		else if(store_high == 1'b1) begin
+			out <= value[15:8];
+		end
+		else begin
+			out <= 8'hzz;
+		end
+	end
 endmodule
